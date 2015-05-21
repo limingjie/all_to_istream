@@ -45,7 +45,7 @@ are provided or inherited from `ios` or `ios_base`.
 ##Usage
 
 ```bash
-$ ./all_to_istream.exe -u
+$ ./all_to_istream.exe -h
 Usage: all_to_istream
    or: all_to_istream FILE
    or: all_to_istream -s STRING
