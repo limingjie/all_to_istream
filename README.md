@@ -45,10 +45,39 @@ are provided or inherited from `ios` or `ios_base`.
 ##Usage
 
 ```bash
-$ ./all_to_istream.exe -h
+$ ./all_to_istream -h
 Usage: all_to_istream
    or: all_to_istream FILE
    or: all_to_istream -s STRING
    or: all_to_istream -h
 Process standard input, file or string as istream, to simplify support to different inputs.
+
+$ ./all_to_istream
+Info: read_std_input
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+^D
+
+$ ./all_to_istream > lorem.txt
+Info: read_std_input
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+^D
+
+$ ./all_to_istream < lorem.txt
+Info: read_std_input
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+
+$ cat lorem.txt | ./all_to_istream
+Info: read_std_input
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+
+$ ./all_to_istream lorem.txt
+Info: read_file
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+
+$ ./all_to_istream -s "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod."
+Info: read_string
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+$ ./all_to_istream.exe lorem
+Error: fail to open file lorem
 ```

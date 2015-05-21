@@ -4,11 +4,10 @@
 // Process standard input, file or string as istream, to simplify support to
 // different inputs.
 //
-// Author - Mingjie Li
-// Email  - limingjie@outlook.com
-// Date   - May 21, 2015
-// Github - https://github.com/limingjie/all_to_istream
+// May 21, 2015 - by Mingjie Li (limingjie@outlook.com)
+// https://github.com/limingjie/all_to_istream
 //
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -26,43 +25,46 @@ void usage()
         << std::endl;
 }
 
-void read_istream(std::istream &in)
+void read_istream(std::istream &is)
 {
     char c;
 
-    while (in.get(c))
+    while (is.get(c))
     {
         std::cout << c;
     }
+
+    std::cout.flush();
 }
 
 void read_std_input()
 {
-    std::cerr << "read_std_input" << std::endl;
+    std::cerr << "Info: read_std_input" << std::endl;
 
     read_istream(std::cin);
 }
 
 void read_file(const std::string &filename)
 {
-    std::cerr << "read_file" << std::endl;
+    std::ifstream ifs(filename);
 
-    std::ifstream file(filename);
-    if (file)
+    if (ifs)
     {
-        read_istream(file);
+        std::cerr << "Info: read_file" << std::endl;
+
+        read_istream(ifs);
     }
     else
     {
-        usage();
+        std::cerr << "Error: fail to open file " << filename << std::endl;
     }
 
-    file.close();
+    ifs.close();
 }
 
 void read_string(const std::string &data)
 {
-    std::cerr << "read_string" << std::endl;
+    std::cerr << "Info: read_string" << std::endl;
 
     std::stringstream ss(data);
     read_istream(ss);
