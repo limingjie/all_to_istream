@@ -70,7 +70,7 @@ void read_string(const std::string &data)
     read_istream(ss);
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
     switch (argc)
     {
