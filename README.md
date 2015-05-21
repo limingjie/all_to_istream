@@ -17,22 +17,25 @@ are provided or inherited from `ios` or `ios_base`.
 ##How to convert different inputs to istream
 
 - Standard input stream
-cin is defined as istream
+
+  `std::cin` is defined as `istream`
 
   ```c++
   extern istream cin;
   ```
 
-- fstream and stringstream
-Both fstream and stringstream are inherited from iostream, which inherited from istream.
+- `std::fstream` and `std::stringstream`
+
+  Both `fstream` and `stringstream` are inherited from `iostream`, which inherited from `istream`.
 
   ```
   ios_base <--- ios <--- istream <--- iostream <--- fstream
                                                <--- stringstream
   ```
 
-- string
-string can be converted to stringstream.
+- `std::string`
+
+  `string` can be converted to `stringstream`.
 
   ```c++
   explicit stringstream (const string& str,
